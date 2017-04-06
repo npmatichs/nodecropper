@@ -1,0 +1,22 @@
+{
+  "name": "nodejscropper",
+  "version": "1.0.0",
+  "description": "nodejs cropper based fengyuanchen/cropper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npmatichs/nodecropper.git"
+  },
+  "author": "wickd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/npmatichs/nodecropper/issues"
+  },
+  "homepage": "https://github.com/npmatichs/nodecropper#readme",
+  "dependencies": {
+    "jsonfn": "git+http://github.com/npmatichs/jsonfn.git"
+  }
+}
