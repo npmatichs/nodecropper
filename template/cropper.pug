@@ -1,0 +1,44 @@
+if(element.hasAttached(element.getName()))
+    each item in element.attached(element.getName())
+        div.row.cropper-tool(data-cropper-init-options=`${element.getCropperOptions()}`)
+            div.col-md-6
+                div.image-crop
+                    img(src=item.getFullPath() style="width:100%").canvas-image
+
+            div.col-md-6
+                h4 Preview Image
+                div.img-preview.img-preview-sm
+                h4 Common Actions
+                .btn-group
+                    label.btn.btn-sm.btn-primary(title="Upload image file" for="cropper_" + element.getName() role="upload_image")
+                        input(type="file" accept="image/*" name=element.getName() id="cropper_" + element.getName() onchange="cropHandle(this, 'onUploadCropImage')" role="upload_input").upload-cropper-input.hide
+                        = "Upload new image"
+                    label.btn.btn-sm.btn-primary(title="Crop image" onClick="cropHandle(this, 'onClickCropImage')" role="crop_image" style="display:none") Crop image
+                    label.btn.btn-sm.btn-primary(title="Edit image" onClick="cropHandle(this, 'onClickEditImage')" role="edit_image") Edit image
+                h4 Other Actions
+                p Basic actions
+                .btn-group.crop-tools
+                    button.btn.btn-sm.btn-white(type="button" role="zoomIn" disabled data-tool-method="zoom" data-tool-option="0.1") Zoom In
+                    button.btn.btn-sm.btn-white(type="button" role="zoomOut" disabled data-tool-method="zoom" data-tool-option="-0.1") Zoom Out
+                    button.btn.btn-sm.btn-white(type="button" role="reset" disabled data-tool-method="reset") Reset
+                    button.btn.btn-sm.btn-white(type="button" role="destroy" disabled data-tool-method="destroy" onClick="cropHandle(this, 'onClickCroperCancelBtn')") Cancel
+                p Move actions
+                .btn-group.crop-tools
+                    button.btn.btn-sm.btn-white(type="button" role="moveLeft" disabled data-tool-method="move" data-tool-option="[-10, 0]")
+                        span.fa.fa-arrow-left
+                    button.btn.btn-sm.btn-white(type="button" role="moveRight" disabled data-tool-method="move" data-tool-option="[10, 0]")
+                        span.fa.fa-arrow-right
+                    button.btn.btn-sm.btn-white(type="button" role="moveUp" disabled data-tool-method="move" data-tool-option="[0, -10]")
+                        span.fa.fa-arrow-up
+                    button.btn.btn-sm.btn-white(type="button" role="moveDown" disabled data-tool-method="move" data-tool-option="[0, 10]")
+                        span.fa.fa-arrow-down
+                    button.btn.btn-sm.btn-white(type="button" role="rotateLeft" disabled data-tool-method="rotate" data-tool-option="-45")
+                        span.fa.fa-rotate-left
+                    button.btn.btn-sm.btn-white(type="button" role="rotateRight" disabled data-tool-method="rotate" data-tool-option="45")
+                        span.fa.fa-rotate-right
+                p Aspect Ratio
+                .btn-group.crop-tools
+                    button.btn.btn-sm.btn-white(type="button" role="setAspectRatio" disabled data-tool-method="setAspectRatio" data-tool-option="16/9") Widescreen 16:9
+                    button.btn.btn-sm.btn-white(type="button" role="setAspectRatio" disabled data-tool-method="setAspectRatio" data-tool-option="4/3") Standard 4:3
+                    button.btn.btn-sm.btn-white(type="button" role="setAspectRatio" disabled data-tool-method="setAspectRatio" data-tool-option="1") Square 1:1
+                    button.btn.btn-sm.btn-white(type="button" role="setAspectRatio" disabled data-tool-method="setAspectRatio" data-tool-option="NaN") Free
